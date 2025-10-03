@@ -141,8 +141,31 @@ For a read transaction, the RD signal does not convey the validity of the `RDDAT
 
 ### Requestor Completer Backpressure
 
+>[!Faq] Why would a Requestor Exert Backpressure on Completers?
+> > after all, shouldn’t a requestor know what it wants to write to the completer before initiating a burst transaction? 
+>
+> This is the case when only a small amount of data needs transmitting, but if large amounts of data are involved some requestors may not know the extent of the payload they want to transmit at the outset. A common example would be a requestor reading from a FIFO.
+> 
+> ![[Pasted image 20251003182710.png]]
+
+#### Write Transaction
+
+To Implement Requestor to Completer Backpressure, you can do this by deasserting the `WR` signal then asserting it again.
+
+![[Pasted image 20251003183017.png]]
+
+#### Read Transaction
+
+>[!warning] We cannot Approach it as Write Transaction
+>Asserting RD when all of the data words from the previous transaction have not yet been received would be equivalent to the requestor telling the completer it wanted to start a new transaction as soon as the current one had terminated
+
+Some protocols allow requestors to signal for completers future transactions, this done by giving the Completer a notice so that it can ensure its internal buffers accommodate the burst transaction.
+
+We are not those protocols so we will add a new signal `RDDATAREADY` which when deasserted by the requester, the requester can stall itself, and the completer will not assert new data in `RDDATA` bus unless `RDDATAREADY` is asserted again.
+
+![[Pasted image 20251003184041.png]]
 
 
-Next [[01 AHB-Lite Protocol]]
+Next [[01 Interconnect Fabric]]
 
 [^1]: 
