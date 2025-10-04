@@ -54,4 +54,10 @@ To support even higher bandwidth, AHB-lite utilizes _wide data buses_.
 > [!note] Some High-Level Observations
 > - supports _power-of-two bus sizes_ that range from _8 to 1024 bits_.
 > - There are extra signals on the Subordinate side, `HREADY` and `HSEL`, that is because multiple subordinates can be connected to the same manager and the AHB-Lite protocol designers decided to expose the extra signaling to handle this multiplicity on the subordinate side of the interconnect.
+>
 
+### Implementation
+
+![[Pasted image 20251004153340.png]]
+
+- Notice that the `HREADY` signals from subordinate side are many while it is only one on the manager side, that is because the `HREADY`
