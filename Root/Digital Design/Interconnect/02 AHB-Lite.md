@@ -150,10 +150,25 @@ In [[00 Basic 1 to 1 Interconnect]] bursts were introduced to allow back-to-back
 | 0b111  | INCR16 | 16-beat incrementing burst       |
 ![[Pasted image 20251004174720.png]]
 
----
-### Verdict
+### Backpressure
 
-> [!error] Disadvantages
-> - Because of its pipelined design, AHB-Lite does **not permit** subordinates to _directly extend the address phase of a transfer_. This means that only the data phase of a transfer can be stalled and subordinates _must therefore be designed such that they can sample the various control signals generated during the address phase at all times_.
-> - 
+#### Subordinate to Manager
+
+- During a data phase, subordinates can deassert `HREADY` to insert wait states if they require more time to respond to a transfer, with the address phase of the next transfer only accepted when `HREADY` is high again.
+
+#### Manager to Subordinate 
+
+>[!error] Due to the pipelined nature of AHB-Lite, Address phase cannot be stalled
+> **However**, does it make sense for the manager to stall a single word transaction, it should support the word widths that it requests, otherwise it would use `SEQ` state.
+> **Also**, does it make sense for the manager to stall an `IDLE` state, it would just stall itself this way.
+> So AHB-Lite _only supports stalling for burst transactions_ were the manager _runs out of memory in internal buffers_.
+
+
+
+
+
+
+
+
+
 
