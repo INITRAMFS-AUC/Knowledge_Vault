@@ -138,3 +138,17 @@ In [[00 Basic 1 to 1 Interconnect]] bursts were introduced to allow back-to-back
 >[!warning] 
 >Note that the total amount of data transferred in a burst is defined by multiplying the _number of beats_ by the _amount of data in each beat_ (as conveyed through the `HSIZE` bus). This definition implies that `HSIZE` **must** remain **constant** throughout the burst and that the manager cannot change the data width between beats.
 
+| HBURST | Name   | Description                      |
+|--------|--------|----------------------------------|
+| 0b000  | SINGLE | Single-beat burst                |
+| 0b001  | INCR   | Incrementing burst of undefined length |
+| 0b010  | WRAP4  | 4-beat wrapping burst            |
+| 0b011  | INCR4  | 4-beat incrementing burst        |
+| 0b100  | WRAP8  | 8-beat wrapping burst            |
+| 0b101  | INCR8  | 8-beat incrementing burst        |
+| 0b110  | WRAP16 | 16-beat wrapping burst           |
+| 0b111  | INCR16 | 16-beat incrementing burst       |
+![[Pasted image 20251004174720.png]]
+
+
+
