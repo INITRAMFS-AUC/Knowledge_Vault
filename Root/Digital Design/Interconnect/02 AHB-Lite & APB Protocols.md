@@ -60,4 +60,4 @@ To support even higher bandwidth, AHB-lite utilizes _wide data buses_.
 
 ![[Pasted image 20251004153340.png]]
 
-- Notice that the `HREADY` signals from subordinate side are many while it is only one on the manager side, that is because the `HREADY`
+- Notice that the `HREADY` signals from subordinate side are many while it is only one on the manager side, that is because if one completer is still carrying out 
