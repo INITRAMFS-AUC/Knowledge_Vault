@@ -4,13 +4,15 @@ tags:
 References:
   - "Arm Fundamentals SoC: Chapter 4: Interconnect"
 ---
-> _This is more or less a summarization of Chapter 4, of Arm Fundamentals of SoC textbook_ 
+> _This is more or less a summarization of Chapter 4, of Arm Fundamentals of SoC textbook_, with note author's input.
 
 >[!note]- Requestor & Completer
 > The Component that is _Requesting_ a resource/computation from another component, the _completer_, which completes this request.
 
 # Synchronous Interconnect Protocol Devving
 ## Single Word Transactions
+
+^cb00a1
 
 >[!quote]- ARM SoC: Single Word Transaction
 >The simplest form of transaction that we need an interconnect protocol to support is the movement of a single word from a requestor to a completer, that is, a single-word write transaction.
@@ -62,6 +64,8 @@ To Support *Single Word Write* Transaction we can simply add
 ![[Pasted image 20251002164032.png]]
 
 ## Burst Transactions
+
+^2d40f7
 
 A Major __Disadvantage__ with the current interconnect that its support for back-to-back rapid transaction is lack-luster and leaves clock cycles to be optimized.
 In the general case of a completer with an N-cycle end-to-end read latency, the maximum data throughput will be:
@@ -161,11 +165,27 @@ To Implement Requestor to Completer Backpressure, you can do this by deasserting
 
 Some protocols allow requestors to signal for completers future transactions, this done by giving the Completer a notice so that it can ensure its internal buffers accommodate the burst transaction.
 
-We are not those protocols so we will add a new signal `RDDATAREADY` which when deasserted by the requester, the requester can stall itself, and the completer will not assert new data in `RDDATA` bus unless `RDDATAREADY` is asserted again.
+We are not those protocols so we will add a new signal `RDDATAREADY` which when deasserted by the requester, the requester can stall the completer, and the completer will assert\hold the current data in `RDDATA` bus until `RDDATAREADY` is asserted again.
 
 ![[Pasted image 20251003184041.png]]
 
+## Final Interconnect Protocol Interface Signals
 
-Next [[01 Interconnect Fabric]]
+| Signal        | Importance                                                                                                                                                     |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| WR            | _Control Signal_ to Signify the intention to Write to a completer                                                                                              |
+| WRDATA \[BUS] | _Data Bus_ that holds the data to be Written                                                                                                                   |
+| RD            | _Control Signal_ to Signify the intention to Read from a completer                                                                                             |
+| RDDATA \[BUS] | _Data Bus_ To hold the data to be read by requestor                                                                                                            |
+| ADDR \[BUS]   | _Address Bus_ To Hold the address of which the data is to be written to                                                                                        |
+| LENGTH        | _Control Signal_ to Show how many words to read/write in a burst transaction                                                                                   |
+| READY         | _Control Signal_ From Completer to Requestor signaling that the Completer is busy carrying out a request                                                       |
+| RDDATAVALID   | _Control Signal_ from completor to requestor signaling that the data in the `RDDATA` BUS is ready to be read.                                                  |
+| RDDATAREADY   | *Control Signal* from requestor to completer signaling that the completer needs to stall to wait for the requestor to read the next `RDDATA` word transaction. |
 
-[^1]: 
+---
+
+Next on how to connect multiple requestors & completers: [[01 Interconnect Fabric]]
+
+---
+
