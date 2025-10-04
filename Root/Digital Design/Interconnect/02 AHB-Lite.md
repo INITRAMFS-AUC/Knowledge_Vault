@@ -119,14 +119,22 @@ Assume we are saving `uint8_t` or `uint16_t` in C, this operation would consume 
 #### `HBURST`
 
 ##### Why are Bursts Supported in AHB-Lite?
-In [[00 Basic 1 to 1 Interconnect]] bursts were introduced to allow back-to-back transactions, but this is already enabled by default by the **pipelined nature** of AHB-Lite, however Bursts are supported because this can _allow completers to prepare_ their internals for the data given in bursts possibly _relieving some backpressure exerted on requester_.
 
+In [[00 Basic 1 to 1 Interconnect]] bursts were introduced to allow back-to-back transactions, but this is already enabled by default by the **pipelined nature** of AHB-Lite, however bursts are supported because this can _allow completers to prepare_ their internals for the data given in bursts possibly _relieving some backpressure exerted on requester_.
+
+---
+##### Definitions
+
+>[!note] Each bus burst transfer is called a beat by AMBA.
+
+>[!note] Incrementing bursts
+>- The address of the next beat is computed as $(addr_{prev} + HSIZE)$, i.e. successive beats always have incrementing addresses. 
+
+> [!note] Wrapping bursts 
+>- The address of the next beat is computed as $(addr_{prev} + HSIZE)\ \%\ (\#beats × HSIZE)$, i.e. successive beats’ addresses wrap when they cross an address (or block-size) boundary defined by the product of the number of beats (defined by `HBURST`) and the data width (in bytes; defined by `HSIZE`).
+
+##### Implementation
 
 >[!warning] 
 >Note that the total amount of data transferred in a burst is defined by multiplying the _number of beats_ by the _amount of data in each beat_ (as conveyed through the `HSIZE` bus). This definition implies that `HSIZE` **must** remain **constant** throughout the burst and that the manager cannot change the data width between beats.
-
-
-
-
-
 

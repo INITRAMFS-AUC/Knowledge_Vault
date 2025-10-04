@@ -102,7 +102,7 @@ Just like in software, your interconnect fabric can act as an **adapter** follow
 
 --- 
 
-For real world examples on Interconnects: [[02 AHB-Lite & APB Protocols]]
+For real world examples on Interconnects: [[02 AHB-Lite]]
 
 ---
 
