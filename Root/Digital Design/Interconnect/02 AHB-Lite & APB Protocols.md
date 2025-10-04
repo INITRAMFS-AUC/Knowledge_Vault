@@ -60,4 +60,23 @@ To support even higher bandwidth, AHB-lite utilizes _wide data buses_.
 
 ![[Pasted image 20251004153340.png]]
 
-- Notice that the `HREADY` signals from subordinate side are many while it is only one on the manager side, that is because if one completer is still carrying out a request it needs to finish before the next request is issued, this ensures requests are carried out **in order** in the pipelined nature of this implementation.
+- Notice that the `HREADY` signals from subordinate side are many while it is only one on the manager side, that is because if one completer is still carrying out a request _on the bus_ it needs to finish before the next request is issued, this ensures requests are carried out **in order** in the pipelined nature of this implementation.
+- The **address decoder** is _combinational_, that means it is _stateless_ yet the multiplexer must be _stateful_, the multiplexer must be stateful to avoid the _infinite stalling_ problem outlined in [[00 Basic 1 to 1 Interconnect#^e99960|00 Basic 1 to 1 Interconnect]]
+- `HSELx` is outputted from **address decoder**, it selects the correct subordinate based on the address requested from the manager.
+
+
+### Basic Operations
+
+
+#### Write Operations
+Assume these set of Write operations 
+
+| Address | Data |
+| ------- | ---- |
+| 0x0     | 0xA  |
+| 0x4     | 0xB  |
+| 0x8     | 0xC  |
+| 0xC     | 0xD  |
+| 0x10    | 0xE  |
+![[Pasted image 20251004162523.png]]
+

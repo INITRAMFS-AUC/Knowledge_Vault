@@ -116,6 +116,9 @@ To realize this feature, all we need is to implement a `READY` signal.
 > if a requestor wants to start a transaction, then it should assert its control signals and keep them asserted until the completer’s READY signal is asserted, Two Design Decesions are employed here:
 > 1. the requestor must not check the `READY` signal before deciding to assert its control signals because otherwise the completer may never know of the requestor’s intention to start a transaction
 > 2. transactions cannot be interrupted once started because a requestor cannot deassert its control signals early, and all data words must be transmitted for both entities to acknowledge the transaction has finished.
+
+^e99960
+
 ##### Waveform
 
 ![[Pasted image 20251002190522.png]]
