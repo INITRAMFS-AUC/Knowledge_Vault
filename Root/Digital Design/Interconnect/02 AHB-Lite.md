@@ -165,7 +165,7 @@ In [[00 Basic 1 to 1 Interconnect]] bursts were introduced to allow back-to-back
 
 ![[Pasted image 20251004195232.png]]
 
-
+### Multi=-
 
 
 
