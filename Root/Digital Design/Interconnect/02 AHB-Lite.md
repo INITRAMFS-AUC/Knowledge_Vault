@@ -163,7 +163,7 @@ In [[00 Basic 1 to 1 Interconnect]] bursts were introduced to allow back-to-back
 > **Also**, does it make sense for the manager to stall an `IDLE` state, it would just stall itself this way.
 > So AHB-Lite _only supports stalling for burst transactions_ were the manager _runs out of memory in internal buffers_.
 
-
+![[Pasted image 20251004195232.png]]
 
 
 
