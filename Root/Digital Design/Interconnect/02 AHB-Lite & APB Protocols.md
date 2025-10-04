@@ -81,6 +81,11 @@ Assume these set of Write operations
 #### Read Operation Waveform
 ![[Pasted image 20251004163118.png]]
 
+### New Signals 
+
+
+#### `HTRANS`
+
 `HTRANS` is a 2-bit signal sent from the manager to the subordinate to indicate the type of transfer being requested. 
 
 | HTRANS | Type   | Description                                                                                           |
@@ -89,3 +94,11 @@ Assume these set of Write operations
 | b01    | BUSY   | allows the master to insert idle cycles in the middle of a burst to achieve master-slave backpressure |
 | b10    | NONSEQ | indicates a non-sequential transfer (single or first of a burst)                                      |
 | b11    | SEQ    | indicates the current transfer is the subsequent transfer of a burst                                  |
+Operation of `HTRANS` signal:
+
+![[Pasted image 20251004164601.png]]
+
+
+#### `HSIZE`
+
+`HSIZE`, a 3-bit signal that indicates the size of a single transfer in bytes. 
