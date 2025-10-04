@@ -82,8 +82,6 @@ Assume these set of Write operations
 ![[Pasted image 20251004163118.png]]
 
 ### New Signals 
-
-
 #### `HTRANS`
 
 `HTRANS` is a 2-bit signal sent from the manager to the subordinate to indicate the type of transfer being requested. 
@@ -117,4 +115,18 @@ Assume we are saving `uint8_t` or `uint16_t` in C, this operation would consume 
 | 0b111 | 128          | 1024        |
 ##### Waveform
 ![[Pasted image 20251004170856.png]]
+
+#### `HBURST`
+
+##### Why are Bursts Supported in AHB-Lite?
+In [[00 Basic 1 to 1 Interconnect]] bursts were introduced to allow back-to-back transactions, but this is already enabled by default by the **pipelined nature** of AHB-Lite, however Bursts are supported because this can _allow completers to prepare_ their internals for the data given in bursts possibly _relieving some backpressure exerted on requester_.
+
+
+>[!warning] 
+>Note that the total amount of data transferred in a burst is defined by multiplying the _number of beats_ by the _amount of data in each beat_ (as conveyed through the `HSIZE` bus). This definition implies that `HSIZE` **must** remain **constant** throughout the burst and that the manager cannot change the data width between beats.
+
+
+
+
+
 
