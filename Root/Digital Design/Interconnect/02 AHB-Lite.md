@@ -80,7 +80,6 @@ Assume these set of Write operations
 ![[Pasted image 20251004162523.png]]
 #### Read Operation Waveform
 ![[Pasted image 20251004163118.png]]
-
 ### New Signals 
 #### `HTRANS`
 
@@ -95,7 +94,6 @@ Assume these set of Write operations
 Operation of `HTRANS` signal:
 
 ![[Pasted image 20251004164601.png]]
-
 
 #### `HSIZE`
 
@@ -151,24 +149,28 @@ In [[00 Basic 1 to 1 Interconnect]] bursts were introduced to allow back-to-back
 ![[Pasted image 20251004174720.png]]
 
 ### Backpressure
-
 #### Subordinate to Manager
-
 - During a data phase, subordinates can deassert `HREADY` to insert wait states if they require more time to respond to a transfer, with the address phase of the next transfer only accepted when `HREADY` is high again.
 
 #### Manager to Subordinate 
-
 >[!error] Due to the pipelined nature of AHB-Lite, Address phase cannot be stalled
 > **However**, does it make sense for the manager to stall a single word transaction, it should support the word widths that it requests, otherwise it would use `SEQ` state.
 > **Also**, does it make sense for the manager to stall an `IDLE` state, it would just stall itself this way.
 > So AHB-Lite _only supports stalling for burst transactions_ were the manager _runs out of memory in internal buffers_.
 
 ![[Pasted image 20251004195232.png]]
+### Multi-Manager Systems
+![[Pasted image 20251004201722.png]]
 
-### Multi=-
+The `D` and `A` components are the **address decoder** and the **arbiter (a mux possibly?)**
 
+>[!faq] What would happen if `M1` and `M2` try to access the Same resource, say `S1`?
 
-
-
+### Locked Transfers
+`HMASTLOCK`
+### Transfer Responses
+`HRESP`
+### Protection Rings
+`HPROT`
 
 
