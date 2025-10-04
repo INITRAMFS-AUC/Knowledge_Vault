@@ -41,7 +41,7 @@ References:
 
 Instead of _requestors_ and _completers_, another terminology is used, _Managers_ and _Subordinates_.
 
-## AHB-Lite
+# AHB-Lite
 
 AHB-Lite provides an alternative solution to this bus utilization challenge by allowing managers to issue bus operations in a **pipelined** fashion. Thus, each operation consists of two phases:
 1. an address phase,
@@ -56,7 +56,7 @@ To support even higher bandwidth, AHB-lite utilizes _wide data buses_.
 > - There are extra signals on the Subordinate side, `HREADY` and `HSEL`, that is because multiple subordinates can be connected to the same manager and the AHB-Lite protocol designers decided to expose the extra signaling to handle this multiplicity on the subordinate side of the interconnect.
 >
 
-### Implementation
+## Implementation
 
 ![[Pasted image 20251004153340.png]]
 
@@ -150,5 +150,10 @@ In [[00 Basic 1 to 1 Interconnect]] bursts were introduced to allow back-to-back
 | 0b111  | INCR16 | 16-beat incrementing burst       |
 ![[Pasted image 20251004174720.png]]
 
+---
+### Verdict
 
+> [!error] Disadvantages
+> - Because of its pipelined design, AHB-Lite does **not permit** subordinates to _directly extend the address phase of a transfer_. This means that only the data phase of a transfer can be stalled and subordinates _must therefore be designed such that they can sample the various control signals generated during the address phase at all times_.
+> - 
 
