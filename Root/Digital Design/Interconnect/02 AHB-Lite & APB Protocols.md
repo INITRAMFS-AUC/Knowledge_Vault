@@ -101,4 +101,20 @@ Operation of `HTRANS` signal:
 
 #### `HSIZE`
 
+Assume we are saving `uint8_t` or `uint16_t` in C, this operation would consume a lot of bus cycles if it is emulated as the data bus width would be fixed to `32` bit data buses, therefore we need a way for the requestor to signal to the completer the size of the data transaction so it can be done in one bus cycle.
+
 `HSIZE`, a 3-bit signal that indicates the size of a single transfer in bytes. 
+
+| HSIZE | Size (bytes) | Size (bits) |
+| ----- | ------------ | ----------- |
+| 0b000 | 1            | 8           |
+| 0b001 | 2            | 16          |
+| 0b010 | 4            | 32          |
+| 0b011 | 8            | 64          |
+| 0b100 | 16           | 128         |
+| 0b101 | 32           | 256         |
+| 0b110 | 64           | 512         |
+| 0b111 | 128          | 1024        |
+##### Waveform
+![[Pasted image 20251004170856.png]]
+
