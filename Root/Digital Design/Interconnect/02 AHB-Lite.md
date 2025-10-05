@@ -118,7 +118,10 @@ Assume we are saving `uint8_t` or `uint16_t` in C, this operation would consume 
 
 ##### Why are Bursts Supported in AHB-Lite?
 
+^1d6007
+
 In [[00 Basic 1 to 1 Interconnect]] bursts were introduced to allow back-to-back transactions, but this is already enabled by default by the **pipelined nature** of AHB-Lite, however bursts are supported because this can _allow completers to prepare_ their internals for the data given in bursts possibly _relieving some backpressure exerted on requester_.
+^backpressure
 
 ---
 ##### Definitions
@@ -167,7 +170,7 @@ The `D` and `A` components are the **address decoder** and the **arbiter (a mux 
 >[!faq] What would happen if `M1` and `M2` try to access the Same resource, say `S1`?
 
 ### Locked Transfers
-`HMASTLOCK`
+`HMASTLOCK` ^c87933
 ### Transfer Responses
 `HRESP`
 ### Protection Rings
