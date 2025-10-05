@@ -1,3 +1,8 @@
+---
+tags:
+  - csce/debugging
+---
+
 ## to compile 
 
 `g++ <file-name> -g -o <executable-name>`

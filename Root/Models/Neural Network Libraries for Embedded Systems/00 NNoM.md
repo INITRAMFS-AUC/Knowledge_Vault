@@ -3,7 +3,7 @@ References:
   - https://github.com/majianjia/nnom?tab=readme-ov-file
   - https://majianjia.github.io/nnom/guide_5_min_to_nnom/
 tags:
-  - csce/models/libraries
+  - csce/machine_learning/models/libraries
 ---
 ## The structure of NNoM
 - NNoM is a high-level inference Neural Network library specifically for microcontrollers.
