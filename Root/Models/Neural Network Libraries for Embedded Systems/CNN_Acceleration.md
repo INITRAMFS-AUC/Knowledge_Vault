@@ -138,7 +138,7 @@ This maximizes parallelism, minimizes data movement, and maps cleanly to MCU/ASI
 
 ---
 
-## Appendix — Quick formulas your hardware team will ask for
+## Appendix — Quick formulas your hardware team will ask for (I'm guessing)
 
 * **Dense $k\times k$ conv MACs:** $H_o W_o, C_{\text{out}}, (k^2 C_{\text{in}})$.
 * **DS-conv MACs:** $H_o W_o, (k^2 C_{\text{in}} + C_{\text{in}} C_{\text{out}})$.
