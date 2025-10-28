@@ -1,0 +1,2 @@
+>[!summary] Advanced Peripheral Bus
+> This is mainly introduced to hook up low performance devices to your SoC, it can integrate well with [[02 AHB-Lite]] serving by introducing an AHB-Lite to APB Bridge which is just an FSM<
