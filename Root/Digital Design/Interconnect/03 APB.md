@@ -22,6 +22,8 @@ References:
 The APB Bridge exposes a APB requester on one side and an AHB-Lite Completer Interface on the other side. 
 This bridge is the glue that separates the high frequency clock domain from the low frequency clock domain.
 
+The APB interface acts as the manager and chip selects the completers, unlike the stateful mux in [[02 AHB-Lite]], this one is completely stateless.
+
 >[!Quote]
 >"All pipelined AHB-Lite transfers directed to the APB bridge from an AHB-Lite manager are automatically backpressured and handled over multiple clock cycles by the APB subsystem ... The APB bridge then relays a response back to the AHB-Lite manager and releases its backpressure. "
 
@@ -49,8 +51,11 @@ The state machine then unconditionally transitions from the SETUP state to an AC
 	- if another AHB-Lite transfer is received by the APB bridge, then its state machine transitions back to the SETUP state in support of a further APB transfer (possibly to a different completer)
 	- if no further AHB-Lite transfer is received, then the state machine transitions back to the IDLE state.
 
-
 ## Basic Transfers
+
+### Read
+![[Pasted image 20251028202401.png]]
+### Write
 
 
 
