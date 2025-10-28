@@ -40,7 +40,7 @@ This bridge is the glue that separates the high frequency clock domain from the 
 - Gives the APB completer opportunity to carry out its request
 - Given time to configure the multiplexer between bridge and APB completers, we configure it with _PSEL_ signals to forward the data from the correct completer
 
-### Access
+### ACCESS
 
 
 
