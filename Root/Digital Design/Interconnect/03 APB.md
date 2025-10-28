@@ -40,7 +40,21 @@ This bridge is the glue that separates the high frequency clock domain from the 
 - Gives the APB completer opportunity to carry out its request
 - Given time to configure the multiplexer between bridge and APB completers, we configure it with _PSEL_ signals to forward the data from the correct completer
 
+The state machine then unconditionally transitions from the SETUP state to an ACCESS state
 ### ACCESS
+
+- both PSEL and PENABLE are asserted 
+- The transfer occurs if the completer is ready to handle it
+- The state machine _remains in the ACCESS state_ for _as long as is necessary for the completer to perform the transfer._
+	- if another AHB-Lite transfer is received by the APB bridge, then its state machine transitions back to the SETUP state in support of a further APB transfer (possibly to a different completer)
+	- if no further AHB-Lite transfer is received, then the state machine transitions back to the IDLE state.
+
+
+## Basic Transfers
+
+
+
+
 
 
 
