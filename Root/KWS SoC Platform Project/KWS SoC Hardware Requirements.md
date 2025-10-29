@@ -7,8 +7,13 @@ References:
 ---
 # SoC Design
 
+## Need Investigation
+
+### Flash 
+
 ## Included Design Choices w/ Substantiation
 
+- SRAM
 ### Direct Memory Access (DMA) Controllers
 
 [[DMA Controllers]] are needed to relieve CPU clock cycles, an example for this would be moving memory from the KWS sample FIFO to Internal memory, done by DMA, while CPU is put in low power or is processing another FIFO block.
