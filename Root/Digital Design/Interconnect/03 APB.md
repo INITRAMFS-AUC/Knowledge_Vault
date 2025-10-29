@@ -58,9 +58,18 @@ The state machine then unconditionally transitions from the SETUP state to an AC
 ![[Pasted image 20251028202401.png]]
 > - As long as there is no requests being done it is in _IDLE_ state, See T0, T3, T7
 > - Once there is a request we give time for the _PSEL_ signals to be asserted in _SETUP_ state, T1, T4
-> - We unconditionally move from SETUP to we go to _ACCESS_ state, see T2, we remain in this state as long as the completer is required to carry out the request T5, T6. 
-
+> - We unconditionally move from SETUP to we go to _ACCESS_ state, see T2, we remain in this state as long as the completer is required to carry out the request T5, T6. What marks the end of the ACCESS state is the _PREADY_ signal sent by completer.
 ### Write
+![[Pasted image 20251029113653.png]]
+> Same concepts apply to write requests.
+
+## Low Power Transfer
+
+To limit switching to IDLE states needlessly, some signals can remain asserted to limit the effect of dynamic power. 
+
+![[Pasted image 20251029113901.png]]
+> you can keep asserting `PADDR`, `PWRITE`, `PWDATA`, since the signals that actually govern the state transitions is _PSEL_ and _PENABLE_.
+
 
 
 
