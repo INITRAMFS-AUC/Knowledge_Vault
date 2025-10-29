@@ -46,18 +46,23 @@ cp ../cmake/config.cmake .
 >These build configs are mostly based on (this repo)[https://github.com/guberti/tvm-arduino-demos] of one of the maintainers on TVM. 
 >> The repo is mainly made for using microTVM on arduino, so it is a good start for trying bare metal microTVM.
 
-We need to make sure the following setup is done, in `build/config.cmake`
->[!important] Make sure that g++ is installed on the system with `which g++`
+>[!important] Make sure that `nproc` is on your system
 
+>[!important] Make sure that `g++` is installed on the system with `which g++`
+
+We need to make sure the following setup is done, in `build/config.cmake`
 ```cmake
 set(BUILD_STATIC_RUNTIME OFF)
 set(USE_SORT ON)
 set(USE_MICRO ON)
 set(USE_LLVM "llvm-config --ignore-libllvm --link-static")
-set(CMAKE_CXX_COMPILER $(which g++))
+set(CMAKE_CXX_COMPILER <your-gcc-path>)
 set(CMAKE_CXX_FLAGS -Werror)
 set(HIDE_PRIVATE_SYMBOLS ON)
 set(CMAKE_BUILD_TYPE RelWithDebInfo)
-
 ```
 
+Build using the following flags:
+```bash
+cmake .. && cmake --build . --parallel $(nproc)
+```
