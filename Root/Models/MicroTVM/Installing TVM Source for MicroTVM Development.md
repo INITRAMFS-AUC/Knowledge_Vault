@@ -47,22 +47,17 @@ cp ../cmake/config.cmake .
 >> The repo is mainly made for using microTVM on arduino, so it is a good start for trying bare metal microTVM.
 
 We need to make sure the following setup is done, in `build/config.cmake`
+>[!important] Make sure that g++ is installed on the system with `which g++`
+
 ```cmake
 set(BUILD_STATIC_RUNTIME OFF)
 set(USE_SORT ON)
 set(USE_MICRO ON)
-set(USE_LLVM ON)
-set(CMAKE_CXX_COMPILER g++)
+set(USE_LLVM "llvm-config --ignore-libllvm --link-static")
+set(CMAKE_CXX_COMPILER $(which g++))
 set(CMAKE_CXX_FLAGS -Werror)
 set(HIDE_PRIVATE_SYMBOLS ON)
+set(CMAKE_BUILD_TYPE RelWithDebInfo)
+
 ```
 
-From Installation guide we also needs to run these commands
-```bash
-# controls default compilation flags (Candidates: Release, Debug, RelWithDebInfo)
-echo "set(CMAKE_BUILD_TYPE RelWithDebInfo)" >> config.cmake
-
-# LLVM is a must dependency for compiler end
-echo "set(USE_LLVM \"llvm-config --ignore-libllvm --link-static\")" >> config.cmake
-echo "set(HIDE_PRIVATE_SYMBOLS ON)" >> config.cmake
-```
