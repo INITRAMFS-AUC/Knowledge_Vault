@@ -56,8 +56,9 @@ The state machine then unconditionally transitions from the SETUP state to an AC
 
 ### Read
 ![[Pasted image 20251028202401.png]]
->  As long as there is no requests being done it is in _IDLE_ state, See T1, T3, T7
->  Once there is a request we go to _ACCESS_ state, see T2, we remain in this state as long as the completer is required to carry out the request T5, T6. 
+> - As long as there is no requests being done it is in _IDLE_ state, See T0, T3, T7
+> - Once there is a request we give time for the _PSEL_ signals to be asserted in _SETUP_ state, T1, T4
+> - We unconditionally move from SETUP to we go to _ACCESS_ state, see T2, we remain in this state as long as the completer is required to carry out the request T5, T6. 
 
 ### Write
 
