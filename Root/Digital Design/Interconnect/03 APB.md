@@ -8,7 +8,8 @@ References:
 >[!summary] Advanced Peripheral Bus
 > This is mainly introduced to hook up low performance devices to your SoC, it can integrate well with [[02 AHB-Lite]] serving by introducing an AHB-Lite to APB Bridge which is just an FSM.
 
->[!success] What is remarkable in APB you can put it on a different clock domain as it isolates the components on the AHB-Lite interconnect
+>[!success]- What is remarkable in APB you can put it on a different clock domain as it isolates the components on the AHB-Lite interconnect
+>This is done through [[#APB Bridge]]
 
 ![[Pasted image 20251028192338.png]]
 
@@ -55,7 +56,12 @@ The state machine then unconditionally transitions from the SETUP state to an AC
 
 ### Read
 ![[Pasted image 20251028202401.png]]
+>  As long as there is no requests being done it is in _IDLE_ state, See T1, T3, T7
+>  Once there is a request we go to _ACCESS_ state, see T2, we remain in this state as long as the completer is required to carry out the request T5, T6. 
+
 ### Write
+
+
 
 
 
