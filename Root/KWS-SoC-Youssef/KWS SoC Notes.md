@@ -21,6 +21,9 @@
 
 
 ### Non-volatile memory for Hazard & SKY130
+
+^d58e3d
+
 | External Flash Memory                                                                     | On -chip flash memory                                                                                                                                                                                             |
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | The CPU accesses external memory through an AHB-attached flash controller and bus wrapper | [SONOS flash memory](https://skywater-pdk.readthedocs.io/en/main/rules/device-details.html) macro provided for SKY130. Instantiate it in your SoC layout and connect it to your AHB5 interconnect as an AHB slave |

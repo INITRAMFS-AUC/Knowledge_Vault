@@ -9,7 +9,8 @@ References:
 
 ## Need Investigation
 
-### Flash 
+### Flash memory
+[[KWS SoC Notes#^d58e3d|Youssef Notes]] list a Flash memory module for sky130, SONOS Flash memory, we need to know if module is an IP/ or not.
 
 ## Included Design Choices w/ Substantiation
 
