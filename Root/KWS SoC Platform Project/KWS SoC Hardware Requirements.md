@@ -7,8 +7,14 @@ References:
 ---
 # SoC Design
 
+## Need Investigation
+
+### Flash memory
+[[KWS SoC Notes#^d58e3d|Youssef Notes]] list a Flash memory module for sky130, SONOS Flash memory, we need to know if module is an IP/ or not.
+
 ## Included Design Choices w/ Substantiation
 
+- SRAM
 ### Direct Memory Access (DMA) Controllers
 
 [[DMA Controllers]] are needed to relieve CPU clock cycles, an example for this would be moving memory from the KWS sample FIFO to Internal memory, done by DMA, while CPU is put in low power or is processing another FIFO block.
