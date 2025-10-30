@@ -56,10 +56,7 @@ set(BUILD_STATIC_RUNTIME OFF)
 set(USE_SORT ON)
 set(USE_MICRO ON)
 set(USE_LLVM "llvm-config --ignore-libllvm --link-static")
-set(CMAKE_CXX_COMPILER <your-gcc-path>)
-set(CMAKE_CXX_FLAGS -Werror)
 set(HIDE_PRIVATE_SYMBOLS ON)
-set(CMAKE_BUILD_TYPE RelWithDebInfo)
 ```
 
 Build using the following flags:
