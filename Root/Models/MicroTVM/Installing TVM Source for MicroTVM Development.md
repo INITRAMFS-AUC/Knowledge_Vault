@@ -2,7 +2,7 @@
 tags:
   - csce/machine_learning
 References:
-  - https://tvm.apache.org/docs/install/from_source.html#python-package-installation
+  - https://tvm.apache.org/docs/install/from_source.html#enable-c-tests
 ---
 This is more or less steps to setup MicroTVM
 
@@ -63,3 +63,10 @@ Build using the following flags:
 ```bash
 cmake .. && cmake --build . --parallel $(nproc)
 ```
+
+**Make Sure** that the `tvm-ffi` directory is within the root of the project not the one within the build directory.
+
+```bash
+cd 3rdparty/tvm-ffi; pip install .; cd ..
+```
+
