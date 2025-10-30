@@ -59,6 +59,10 @@ set(USE_LLVM "llvm-config --ignore-libllvm --link-static")
 set(HIDE_PRIVATE_SYMBOLS ON)
 ```
 
+---
+
+## Building 
+
 Build using the following flags:
 ```bash
 cmake .. && cmake --build . --parallel $(nproc)
@@ -69,4 +73,37 @@ cmake .. && cmake --build . --parallel $(nproc)
 ```bash
 cd 3rdparty/tvm-ffi; pip install .; cd ..
 ```
+
+> [!warning] Make sure that when installing `tvm-ffi` you should install it **inside the** conda environment that you work on.
+
+### Pip Local Project
+
+Run these commands
+```bash
+export TVM_LIBRARY_PATH=/path-to-tvm/build
+pip install -e /path-to-tvm/python
+```
+
+
+
+## Testing Your Build
+
+Make sure to install the following python dependencies
+```bash
+pip install tornado psutil 'xgboost>=1.1.0' cloudpickle
+```
+
+Validate you installation using
+```bash
+python -c "import tvm; print(tvm.__file__)"
+```
+
+>[!error] If this error appears:
+>```
+>/lib/libstdc++.so.6: version `GLIBCXX_3.4.32' not found
+>```
+> Make sure to update your `libstdc++` inside the conda env:
+> ```
+> conda install -c conda-forge libstdcxx-ng
+> ```
 
