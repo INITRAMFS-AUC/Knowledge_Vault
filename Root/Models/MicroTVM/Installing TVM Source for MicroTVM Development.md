@@ -12,7 +12,6 @@ This is more or less steps to setup MicroTVM
 2. use `bash Miniconda3-latest-linux-x86_64.sh`
 	1. Follow the prompts
 
-
 # MicroTVM setup
 
 This setups the build environment for microTVM.
@@ -83,8 +82,6 @@ Run these commands
 export TVM_LIBRARY_PATH=/path-to-tvm/build
 pip install -e /path-to-tvm/python
 ```
-
-
 
 ## Testing Your Build
 
