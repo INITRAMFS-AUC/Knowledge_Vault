@@ -5,4 +5,6 @@
 - `hazard3_intr_decompress.v` : deleted the `EXTENSION_ZCMP` generate if block as `EXTENSION_ZCMP` is not enabled for our SoC. 
 
 >[!warning]
-> 
+> This is a dirty trick that needs to be done more cleanly.
+
+
