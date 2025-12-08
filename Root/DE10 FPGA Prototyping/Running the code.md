@@ -48,10 +48,27 @@ b 37
 
 lay next
 
+lay next
+
+lay next
+
+next
+
 next
 
 next
 
+```
 
+# minicom
 
+The following opens minicom with baud rate 115200.
+
+```
+sudo minicom -D /dev/ttyUSB0 -b 115200
+```
+
+To find the right tty use the following:
+```
+dmesg | grep tty
 ```
