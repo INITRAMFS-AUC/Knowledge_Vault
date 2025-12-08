@@ -11,5 +11,4 @@
 | **nReset**        | GPIO 16      | Black     | GND           |
 | **Common Ground** | GND          | Black     | GND           |
 `uart_rx` and `uart_tx` are then connected to a USB TTL device to allow us to get the UART output on our machine.
-
-Thi
+Do no forget a common ground for the USB TTL device.
