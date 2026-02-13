@@ -30,3 +30,21 @@ $$Out_1 = (V_{in1} \cdot a_1) + (V_{in2} \cdot a_2) + (V_{in3} \cdot a_3) + (V_{
 ### Why this is "Neuromorphic"
 
 * **Efficiency:** Computation happens at the speed of electricity; no data is moved between a CPU and RAM.
+
+## Mapping Numbers to Physical Quantities
+
+To do math in a brain-like way, we have to translate abstract numbers into real-world physical values. Here is how that "feeling" is captured in the hardware:
+
+| Mathematical Value | Physical Property | Realistic Example |
+| :--- | :--- | :--- |
+| **Weights** | **Conductance ($G$)** | A weight of **1,253** is mapped to **12.53 $\mu S$** (microsiemens) by varying the filament thickness. |
+| **Input Data** | **Voltage ($V$)** | An input pixel value of **5** (on a 0-255 scale) is converted to a pulse of **0.05 V**. |
+| **Result** | **Current ($I$)** | The final answer is the **total current** (e.g., **62.65 $\mu A$**) measured at the bottom of the column. |
+
+
+
+### The Precision Reality Check
+To be honest, this system is not a "calculator" in the traditional sense. It faces significant physical challenges:
+* **Analog Noise & Drift:** Unlike digital bits (exactly 0 or 1), a ReRAM filament can "drift" or change slightly due to heat or wear. Your weight of 12.53 $\mu S$ might naturally become 12.54 $\mu S$ over time.
+* **The "Close Enough" Trade-off:** We sacrifice **mathematical exactness** (precision) for **extreme energy efficiency**. 
+* **Use Case:** This makes ReRAM perfect for **AI and Pattern Recognition**—where a 98% correct "feeling" is enough—but it is fundamentally unsuitable for banking or encryption where every decimal must be perfect.
