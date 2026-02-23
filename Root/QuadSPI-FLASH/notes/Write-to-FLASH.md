@@ -15,22 +15,20 @@
 
 ## Physical Connection
 
-| Pin Name | Signal on Pin | GD25Q32C Flash Connection | Arduino Label |
-| :--- | :--- | :--- | :--- |
-| PA2 | QUADSPI_BK1_NCS | CS# (Chip Select) | A7 |
-| PA3 | QUADSPI_CLK | SCLK (Serial Clock) | A2 |
-| PA6 | QUADSPI_BK1_IO3 | HOLD# (IO3) | A5 |
-| PA7 | QUADSPI_BK1_IO2 | WP# (IO2) (Write Protect) | A6 |
-| PB0 | QUADSPI_BK1_IO1 | SO (IO1) | D3 |
-| PB1 | QUADSPI_BK1_IO0 | SI (IO0) | D6 |
+## Physical Connection
+| Nucleo32 Pin Name | Signal on Pin   | GD25Q32C Flash Connection | Flash1 Breakout Pin (top-right) # | Flash2 Breakout Pin (bottom-left) # | Nucleo32 Arduino Label | Wire Color |
+| :---------------- | :-------------- | :------------------------ | :-------------------- | :-------------------- | :--------------------- | :--------- |
+| PA2               | QUADSPI_BK1_NCS | CS# (Chip Select)         | 5                     | 1                     | A7                     | **Orange** |
+| PA3               | QUADSPI_CLK     | SCLK (Serial Clock)       | 2                     | 6                     | A2                     | **Grey**  |
+| PA6               | QUADSPI_BK1_IO3 | HOLD# (IO3)               | 3                     | 7                     | A5                     | **Grey** |
+| PA7               | QUADSPI_BK1_IO2 | WP# (IO2) (Write Protect) | 7                     | 3                     | A6                     | **Yellow**  |
+| PB0               | QUADSPI_BK1_IO1 | SO (IO1) / DO             | 6                     | 2                     | D3                     | **Red**    |
+| PB1               | QUADSPI_BK1_IO0 | SI (IO0) / DI             | 1                     | 5                     | D6                     | **Green**  |
+| -                 | VCC             | VCC (Power)               | 4                     | 8                     | 3.3V                   | **Brown**  |
+| -                 | GND             | VSS (Ground)              | 8                     | 4                     | GND                    | **Blue**   |
 
 
-Power Connections (Required)
-To ensure the flash memory operates correctly, you must also complete these power connections:
-
-VCC: Connect to 3.3V power supply.
-
-VSS: Connect to Ground (GND).
+![Physical Connection](../images/STM-FLASH-Connections.jpeg)
 
 ## STM32 QUADSPI Peripheral Configuration
 - Make STM32Cube Project Then disable the default USART2 to solve the pin conflicts with QUADSPI Peripheral
