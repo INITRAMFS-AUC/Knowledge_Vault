@@ -20,12 +20,23 @@
 | :---------------- | :-------------- | :------------------------ | :-------------------- | :-------------------- | :--------------------- | :--------- | :-------------- |
 | PA2               | QUADSPI_BK1_NCS | CS# (Chip Select)         | 5                     | 1                     | A7                     | **Orange** | PIN_AH3 (GPIO 7) |
 | PA3               | QUADSPI_CLK     | SCLK (Serial Clock)       | 2                     | 6                     | A2                     | **Grey**   | PIN_AH4 (GPIO 8) |
-| PA6               | QUADSPI_BK1_IO3 | HOLD# (IO3)               | 3                     | 7                     | A5                     | **Grey**   | PIN_AG3 (GPIO 12) |
-| PA7               | QUADSPI_BK1_IO2 | WP# (IO2) (Write Protect) | 7                     | 3                     | A6                     | **Yellow** | PIN_AG2 (GPIO 11) |
+| PA6               | QUADSPI_BK1_IO3 | HOLD# (IO3)               | 3                     | 7                     | A5                     | **Grey**   | PIN_AG5 (GPIO 13)|
+| PA7               | QUADSPI_BK1_IO2 | WP# (IO2) (Write Protect) | 7                     | 3                     | A6                     | **Yellow** | PIN_AG3 (GPIO 12) |
 | PB0               | QUADSPI_BK1_IO1 | SO (IO1) / DO             | 6                     | 2                     | D3                     | **Red**    | PIN_AG1 (GPIO 10) |
 | PB1               | QUADSPI_BK1_IO0 | SI (IO0) / DI             | 1                     | 5                     | D6                     | **Green**  | PIN_AH5 (GPIO 9) |
 | -                 | VCC             | VCC (Power)               | 4                     | 8                     | 3.3V                   | **Brown**  | - |
 | -                 | GND             | VSS (Ground)              | 8                     | 4                     | GND                    | **Blue**   | - |
+
+### FPGA (DE10) Connections
+
+| **Wire**      | **Pico Pin** | **Color** | **DE-10 Pin** |
+| ------------- | ------------ | --------- | ------------- |
+| xip_csn       | GPIO 7       | Grey      | PIN_AH3       |
+| xip_sck       | GPIO 8       | Purple    | PIN_AH4       |
+| flash_io[0]   | GPIO 9       | Blue      | PIN_AH5       |
+| flash_io[1]   | GPIO 10      | Green     | PIN_AG1       |
+| flash_io[2]   | GPIO 12      | Yellow    | PIN_AG3       |
+| flash_io[3]   | GPIO 13      | Orange    | PIN_AG5       |
 
 
 ![Physical Connection](../images/STM-FLASH-Connections.jpeg)
