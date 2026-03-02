@@ -21,5 +21,5 @@ Do no forget a common ground for the USB TTL device.
 | xip_sck       | GPIO 8       | Purple    | PIN_AH4       |
 | flash_io[0]   | GPIO 9       | Blue      | PIN_AH5       |
 | flash_io[1]   | GPIO 10      | Green     | PIN_AG1       |
-| flash_io[2]   | GPIO 12      | Yellow    | PIN_AG3       |
-| flash_io[3]   | GPIO 13      | Orange    | PIN_AG5       |
+| flash_io[2]   | GPIO 11      | Yellow    | PIN_AG2       |
+| flash_io[3]   | GPIO 12      | Orange    | PIN_AG3       |
