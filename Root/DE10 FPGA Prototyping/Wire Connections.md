@@ -15,7 +15,7 @@ Do no forget a common ground for the USB TTL device.
 
 ## QSPI Flash Connections
 
-| **Wire**      | **Pico Pin** | **Color** | **DE-10 Pin** |
+| **Wire**      | **DE-10 Pin Name** | **Color** | **DE-10 Pin** |
 | ------------- | ------------ | --------- | ------------- |
 | xip_csn       | GPIO 7       | Grey      | PIN_AH3       |
 | xip_sck       | GPIO 8       | Purple    | PIN_AH4       |
