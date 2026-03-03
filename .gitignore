@@ -3,3 +3,9 @@ venv/
 .obsidian
 vscode/
 
+
+# Any drawio files
+*.drawio
+*.drawio.png
+*.drawio.bkp
+
