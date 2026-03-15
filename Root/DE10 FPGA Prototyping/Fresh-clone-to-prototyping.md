@@ -42,3 +42,33 @@ cat ~/.ssh/id_ed25519.pub
 ```bash
 git submodule update --init --recursive
 ```
+
+**Running Simulation**
+
+**Terminal 1**
+```bash
+make test
+make sim FLASH=path/to/file.bin
+```
+
+**Terminal 2**
+```bash
+ riscv-openocd -f openocd/sim.cfg
+```
+
+**Terminal 3**
+```bash
+riscv32-unknown-elf-gdb -x gdbinit 
+```
+
+**FPGA Prototyping**
+**Terminal 1**
+```bash
+make test
+make program
+```
+
+**Terminal 2**
+```bash
+sudo riscv-openocd -f openocd/picodriver.cfg
+```
