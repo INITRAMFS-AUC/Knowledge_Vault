@@ -8,7 +8,7 @@
 | **trst_n**        | GPIO 15      | Brown     | GPIO 4        |
 | **uart_rx**       | NO           | Blue      | GPIO 5        |
 | **uart_tx**       | NO           | White     | GPIO 6        |
-| **nReset**        | GPIO 16      | Black     | GND           |
+| **nReset**        | GPIO 16      | Black     | GND (GPIO 11)?|
 | **Common Ground** | GND          | Black     | GND           |
 `uart_rx` and `uart_tx` are then connected to a USB TTL device to allow us to get the UART output on our machine.
-Do no forget a common ground for the USB TTL device currently done with a white wire.
+
